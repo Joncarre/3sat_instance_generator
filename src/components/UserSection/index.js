@@ -73,7 +73,7 @@ const UserSection = () => {
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 21000000 })
+        { gasLimit: 20000000 })
       await transaction.wait()
     }
   }
@@ -89,7 +89,7 @@ const UserSection = () => {
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 21000000 })
+        { gasLimit: 20000000 })
       await transaction.wait()
     }
   }
@@ -236,13 +236,13 @@ const UserSection = () => {
           </span>
           <FormInput {...register("numInstances", {
             required: true,
-            max: 5,
+            max: 4,
             min: 1,
             pattern: /^[0-9\b]+$/
           })} type="number" name="numInstances" />
           {errors?.numInstances?.type === "required" && <FormError>Field required</FormError>}
-          {errors?.numInstances?.type === "max" && <FormError>Integer number between [1, 5]</FormError>}
-          {errors?.numInstances?.type === "min" && <FormError>Integer number between [1, 5]</FormError>}
+          {errors?.numInstances?.type === "max" && <FormError>Integer number between [1, 4]</FormError>}
+          {errors?.numInstances?.type === "min" && <FormError>Integer number between [1, 4]</FormError>}
           {errors?.numInstances?.type === "pattern" && <FormError>Numerical characters only</FormError>}
           <div>
             { /* FormButtonTop has props(left or right) for controlling the 'float' attr  */}
