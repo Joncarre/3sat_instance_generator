@@ -73,7 +73,7 @@ const UserSection = () => {
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 10000000 })
+        { gasLimit: 16000000 })
       await transaction.wait()
     }
   }
@@ -89,7 +89,7 @@ const UserSection = () => {
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 10000000 })
+        { gasLimit: 16000000 })
       await transaction.wait()
     }
   }
