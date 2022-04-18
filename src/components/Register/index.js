@@ -66,7 +66,6 @@ const Register = () => {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner()
             const contract = new ethers.Contract(generatorAddress, Generator.abi, signer);
-            console.log("async_setResearcher: " + secret, name, email, orcid);
             try {
 				const transaction = await contract.setResearcher(
 					secret,
