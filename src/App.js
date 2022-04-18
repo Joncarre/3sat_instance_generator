@@ -24,7 +24,7 @@ import Development from 'components/SubPages/Development';
 
 
 // Update with the contract address logged out to the CLI when it was deployed 
-export const generatorAddress = "0x03956f1751a6B9c5DA9508DC1BAf4c6D54686202";
+export const generatorAddress = "0xfeb6222808a75a9345f86f1E9eC1ff50DEACe31D";
 
 // request access to the user's MetaMask account
 export async function requestAccount() {
@@ -36,7 +36,7 @@ function App() {
   const toggle = () => {
     setIsOpen(!isOpen)
   }
-  
+
   return (
     <Router>
       <Sidebar isOpen={isOpen} toggle={toggle} />
