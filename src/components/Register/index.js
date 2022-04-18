@@ -57,6 +57,9 @@ const Register = () => {
 		return result;
 	}
 
+	/*
+	* Inserts a new researcher
+	*/
     async function async_setResearcher(data) {
         if (typeof window.ethereum !== 'undefined') {
             await requestAccount()
@@ -65,22 +68,20 @@ const Register = () => {
             const contract = new ethers.Contract(generatorAddress, Generator.abi, signer);
             console.log("async_setResearcher: " + secret, name, email, orcid);
             try {
-            const transaction = await contract.setResearcher(
-                secret,
-                name,
-                email,
-                orcid,
-                { gasLimit: 12000000 })
-            await transaction.wait()
+				const transaction = await contract.setResearcher(
+					secret,
+					name,
+					email,
+					orcid,
+					{ gasLimit: 12000000 })
+				await transaction.wait()
             } catch (e) {
-               //const msg = e.data ? e.data.message : e.message;
 			   alert("This ORCID is already registered.");
             }
         }
     }
 
 	return (
-
 		<Container>
 			<FormContent>
 				<Form onSubmit={handleSubmit(sendEmail)}>

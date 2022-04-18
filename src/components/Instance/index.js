@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { ethers } from 'ethers';
 import Generator from '../../artifacts/contracts/Generator.sol/Generator.json';
 import { generatorAddress, requestAccount } from '../../App.js';
 import { useLocation } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import ColumnHeaderTable from "components/ColumnHeaderTable";
+import { checkPasswordMatchOrcid } from "components/helper";
 import {
 	Container,
 	Wrap,
@@ -23,6 +25,7 @@ import { secureStorage } from 'components/secureSession';
 const Instance = () => {
 	const location = useLocation();
 	const [rowData, setRowData] = useState({});
+	let history = useHistory();
 
 	const {
 		register,
@@ -58,16 +61,19 @@ const Instance = () => {
 				solution_hash,
 				algorithm_hash,
 				hash_method,
-				{ gasLimit: 12000000 })
-			await transaction.wait()
+				{ gasLimit: 10000000 })
+			await transaction.wait();
+			reset({ solution_hash: "", algorithm_hash: "", hash_method: "" });
+
+			history.push({
+				pathname: '/user'
+			});
 		}
-		reset({ solution_hash: "", algorithm_hash: "", hash_method: "" });
 	}
 
 	const handleResolve = (data) => {
+		console.log(data);
 		async_solveInstance(data);
-		// delete the line below and import resolve instance API
-		// setRowData({ ...rowData, solved: true });
 	}
 
 	return (
@@ -78,7 +84,11 @@ const Instance = () => {
 				</TableSection>
 			</Wrap>
 			{/* solved === false */}
-			{Object.keys(rowData).length > 0 && !rowData.solved &&
+			{Object.keys(rowData).length > 0 &&
+				!rowData.solved &&
+				secureStorage.getItem("currOrcid") &&
+				checkPasswordMatchOrcid(secureStorage.getItem("currOrcid")) &&
+
 				<FormWrap1>
 					<Form key={1} onSubmit={handleSubmit(handleResolve)}>
 						<FormH1>Resolve the instance</FormH1>

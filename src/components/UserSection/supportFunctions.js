@@ -1,6 +1,8 @@
 const clausesLength = 3;
 
-// Builds the instance(s) into a friendly way
+/*
+* Builds the instance(s) into a friendly way
+*/
 export function buildInstance(arr) {
     let result = [];
     for (let i = 0; i < arr.length; i++) {
@@ -18,7 +20,9 @@ export function buildInstance(arr) {
     return result;
 }
 
-// Builds the chain as a string
+/*
+* Builds the chain as a string
+*/
 function buildChain(_oldChain) {
     let result = "";
     let array = Array.from(_oldChain);
@@ -39,12 +43,16 @@ function buildChain(_oldChain) {
     return result;
 }
 
-// Converts a hexadecimal number to decimal number
+/*
+* Converts a hexadecimal number to decimal number
+*/
 function hexToDecimal(_hexNumber) {
     return parseInt(_hexNumber._hex, 16);
 }
 
-// Builds the date as date format
+/*
+* Builds the date as date format
+*/
 function buildDate(_oldDate) {
     let result, newDate;
     if (hexToDecimal(_oldDate) !== 0) {
@@ -55,7 +63,9 @@ function buildDate(_oldDate) {
     return result;
 }
 
-// Returns 'true' or 'false' with 50% probability
+/*
+* Returns 'true' or 'false' with 50% probability
+*/
 function getBoolean() {
     if (Math.random() >= 50)
         return true;
@@ -63,7 +73,9 @@ function getBoolean() {
         return false;
 }
 
-// Builds an array of date as date format
+/*
+* Builds an array of date as date format
+*/
 export function buildDateArray(_arrayRandoms) {
     let result = [];
     for (let i = 0; i < _arrayRandoms.length; i++)

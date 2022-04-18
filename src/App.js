@@ -33,10 +33,10 @@ export async function requestAccount() {
 
 function App() {
   const [isOpen, setIsOpen] = useState(false)
-
   const toggle = () => {
     setIsOpen(!isOpen)
   }
+  
   return (
     <Router>
       <Sidebar isOpen={isOpen} toggle={toggle} />

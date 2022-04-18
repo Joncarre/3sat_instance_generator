@@ -7,9 +7,7 @@ import Generator from '../../artifacts/contracts/Generator.sol/Generator.json';
 import './messagesInfo.css'
 import { buildInstance, buildDateArray } from './supportFunctions'
 import swal from 'sweetalert';
-
 import { secureStorage } from 'components/secureSession';
-
 import {
   Container,
   FormButton,
@@ -47,14 +45,22 @@ const UserSection = () => {
   } = useForm();
 
   useEffect(() => {
-    // check whether user entered the password before, if not, go back to /signin page
+    // Check whether user entered the password before, if not, go back to /signin page
     if (!secureStorage.getItem('password')) {
       secureStorage.removeItem("password");
+      secureStorage.removeItem("currOrcid");
       sessionStorage.setItem("noPassword", true);
       history.push("/signin");
     }
   }, [history])
 
+  useEffect(() => {
+    secureStorage.removeItem("currOrcid");
+  }, [])
+
+  /*
+  * Function to check if the user wnats to use A or B generator
+  */
   async function myHandleSubmit(data, event) {
     if (event.nativeEvent.submitter?.id === "submit1")
       async_createAInstance(data);
@@ -62,6 +68,9 @@ const UserSection = () => {
       async_createBInstance(data);
   }
 
+  /*
+  * This function executes the function to generate a new instance using A generator
+  */
   async function async_createAInstance(data) {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount()
@@ -73,11 +82,14 @@ const UserSection = () => {
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 29000000 })
+        { gasLimit: 30000000 })
       await transaction.wait()
     }
   }
 
+  /*
+  * This function executes the function to generate a new instance using B generator
+  */
   async function async_createBInstance(data) {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount()
@@ -89,25 +101,14 @@ const UserSection = () => {
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 29000000 })
+        { gasLimit: 30000000 })
       await transaction.wait()
     }
   }
 
-  async function async_getInstance(data) {
-    if (typeof window.ethereum !== 'undefined') {
-      await requestAccount()
-      const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const contract = new ethers.Contract(generatorAddress, Generator.abi, provider);
-      try {
-        const signer = provider.getSigner();
-        const result = await contract.connect(signer).getInstance(data.orcid);
-      } catch (err) {
-        console.log("Error: ", err)
-      }
-    }
-  }
-
+  /*
+  * Get all instances from smart contract filtered by orcid
+  */
   async function async_getAllInstances(data) {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount()
@@ -118,6 +119,7 @@ const UserSection = () => {
         const result = await contract.connect(signer).getAllInstances(data.orcid);
         console.log(result);
         infoArray = buildInstance(result);
+        secureStorage.setItem("currOrcid", data.orcid)
         history.push({
           pathname: '/instances',
           state: { infoArray }
@@ -128,17 +130,27 @@ const UserSection = () => {
     }
   }
 
+  /*
+  * VRF function to request the random number
+  */
   async function async_getRandomNumber(data) {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount()
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner()
       const contract = new ethers.Contract(generatorAddress, Generator.abi, signer);
-      const transaction = await contract.getRandomNumber(secureStorage.getItem('password'))
-      await transaction.wait();
+      try {
+        const transaction = await contract.getRandomNumber(secureStorage.getItem('password'))
+        await transaction.wait();
+      } catch (e) {
+        alert("Not enough LINK in the smart contract. Please contact the admin.");
+      }
     }
   }
 
+  /*
+  * Asks to the contract if there is enough LINK to call the oracles
+  */
   async function async_getRemainingLINK(data) {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount();
@@ -154,6 +166,9 @@ const UserSection = () => {
     }
   }
 
+  /*
+  * Function to check the moment when the random number has been generated
+  */
   async function async_randomResult(data) {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount();
@@ -180,7 +195,10 @@ const UserSection = () => {
       }
     }
   }
-
+  
+  /*
+  * Get the array which contains all the dates for the random numbers generated from the SC
+  */
   async function async_getDateNumber(data) {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount()
@@ -236,13 +254,13 @@ const UserSection = () => {
           </span>
           <FormInput {...register("numInstances", {
             required: true,
-            max: 4,
+            max: 5,
             min: 1,
             pattern: /^[0-9\b]+$/
           })} type="number" name="numInstances" />
           {errors?.numInstances?.type === "required" && <FormError>Field required</FormError>}
-          {errors?.numInstances?.type === "max" && <FormError>Integer number between [1, 4]</FormError>}
-          {errors?.numInstances?.type === "min" && <FormError>Integer number between [1, 4]</FormError>}
+          {errors?.numInstances?.type === "max" && <FormError>Integer number between [1, 5]</FormError>}
+          {errors?.numInstances?.type === "min" && <FormError>Integer number between [1, 5]</FormError>}
           {errors?.numInstances?.type === "pattern" && <FormError>Numerical characters only</FormError>}
           <div>
             { /* FormButtonTop has props(left or right) for controlling the 'float' attr  */}
