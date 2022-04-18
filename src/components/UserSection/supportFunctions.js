@@ -57,7 +57,7 @@ function buildDate(_oldDate) {
     let result, newDate;
     if (hexToDecimal(_oldDate) !== 0) {
         newDate = new Date(parseInt(_oldDate._hex.slice(2), 16) * 1000);
-        result = newDate.getFullYear() + "/" + newDate.getMonth() + "/" + newDate.getDate() + " " + newDate.getHours() + ":" + newDate.getMinutes();
+        result = newDate.getFullYear() + "/" + (newDate.getMonth()+1) + "/" + newDate.getDate() + " " + newDate.getHours() + ":" + newDate.getMinutes();
     } else
         result = "Date unavailable";
     return result;

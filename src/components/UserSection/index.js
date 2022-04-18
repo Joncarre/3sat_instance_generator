@@ -117,7 +117,6 @@ const UserSection = () => {
       try {
         const signer = provider.getSigner();
         const result = await contract.connect(signer).getAllInstances(data.orcid);
-        console.log(result);
         infoArray = buildInstance(result);
         secureStorage.setItem("currOrcid", data.orcid)
         history.push({
