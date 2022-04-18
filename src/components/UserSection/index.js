@@ -178,7 +178,7 @@ const UserSection = () => {
         const signer = provider.getSigner();
         let isCanceled = false;
         oldRandomNumber = currentRandomNumber;
-        if (parseInt(currentRandomNumber, 16) === parseInt(oldRandomNumber, 16) && currentRandomNumber !== null && oldRandomNumber !== null)
+        if (parseInt(currentRandomNumber, 16) === parseInt(oldRandomNumber, 16) && currentRandomNumber !== null && currentRandomNumber != 0)
           swal("Wait!", "You have not yet used the current number", "info");
         while (!isCanceled) {
           currentRandomNumber = await contract.connect(signer).randomResult();

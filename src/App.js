@@ -24,7 +24,7 @@ import Development from 'components/SubPages/Development';
 
 
 // Update with the contract address logged out to the CLI when it was deployed 
-export const generatorAddress = "0x3b5F72d4b3E8d4340B52ad64236947F935098FB1";
+export const generatorAddress = "0xd74bc718C21297ddb0d6001dBEcc634B0f8061c2";
 
 // request access to the user's MetaMask account
 export async function requestAccount() {
