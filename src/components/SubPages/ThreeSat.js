@@ -13,7 +13,7 @@ const ThreeSat = () => {
 	return (
 		<Container>
 			<Wrap>
-				<NewH1>What ́s 3-SAT?</NewH1>
+				<NewH1>What's 3-SAT?</NewH1>
 				<NewP>3SAT, or the Boolean satisfiability problem, is a problem that asks what is the fastest algorithm to tell for a given formula in Boolean algebra (with unknown number of variables) whether it is satisfiable, that is, whether there is some combination of the (binary) values of the variables that will give 1. In other words, it asks whether the variables of a given Boolean formula can be consistently replaced by the values TRUE or FALSE in such a way that the formula evaluates to TRUE. If this is the case, the formula is called satisfiable. On the other hand, if no such assignment exists, the function expressed by the formula is FALSE for all possible variable assignments and the formula is unsatisfiable.</NewP>
 
 				<NewH2>Conjunctive normal form</NewH2>
