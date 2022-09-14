@@ -77,13 +77,17 @@ const UserSection = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner()
       const contract = new ethers.Contract(generatorAddress, Generator.abi, signer);
+      try {
       const transaction = await contract.createAInstance(
         data.p_value,
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 30000000 })
-      await transaction.wait()
+          { gasLimit: 30000000 })
+        await transaction.wait()
+      } catch (e) {
+        alert("Gas Limit Error: please, consider decreasing the value of some of the parameters used to generate the instances. We use a gas limit of 30 million units. Refer to your MetaMask wallet, select the 'Activity' tab, click on the failed transaction and look at the 'Gas Used' field. This will help you verify the gas you are using in each transaction.");
+      }
     }
   }
 
@@ -96,13 +100,17 @@ const UserSection = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner()
       const contract = new ethers.Contract(generatorAddress, Generator.abi, signer);
+      try {
       const transaction = await contract.createBInstance(
         data.p_value,
         data.q_value,
         secureStorage.getItem('password'),
         data.numInstances,
-        { gasLimit: 30000000 })
-      await transaction.wait()
+          { gasLimit: 30000000 })
+        await transaction.wait()
+      } catch (e) {
+        alert("Gas Limit Error: please, consider decreasing the value of some of the parameters used to generate the instances. We use a gas limit of 30 million units. Refer to your MetaMask wallet, select the 'Activity' tab, click on the failed transaction and look at the 'Gas Used' field. This will help you verify the gas you are using in each transaction.");
+      }
     }
   }
 
