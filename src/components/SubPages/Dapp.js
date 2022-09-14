@@ -14,7 +14,7 @@ const Dapp = () => {
     return (
         <Container>
             <Wrap>
-                <NewH1>What ́s a DApp?</NewH1>
+                <NewH1>What's a DApp?</NewH1>
                 <NewP>To understand what a DApp is, we first need to understand what Ethereum is. Now, there are other protocols that are used to build DApps, like EOS, NEO, Stellar, Tron, and Cardano, but the big dog is Ethereum.</NewP>
                 <NewP>Ethereum is a network protocol that allows users to create and run smart contracts over a decentralized network. A smart contract contains code that runs specific operations and interacts with other smart contracts, which has to be written by a developer. Unlike Bitcoin which stores a number, Ethereum stores executable code.</NewP>
                 <NewP>The advantage here is that Ethereum removes the need for a third party to handle transactions between peers. Since the middle man is replaced by code, all kinds of costs are reduced, including time and money. The nodes of the network contain all of the information of all the world's smart contracts, including code, transactions, etc. They're constantly working to keep this information up-to-date so they all have the exact same copy. This what makes smart contracts, and cryptocurrencies in general, decentralized. And since all of the nodes have the same information and are spread across the world, the removal of a node won't interrupt the execution of any smart contract.</NewP>
