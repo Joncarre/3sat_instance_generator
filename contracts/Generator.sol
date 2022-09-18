@@ -148,6 +148,10 @@ contract Generator is VRFConsumerBase {
     /// @notice Generates a new Instance from A generator
     /// @param _p, _q, _secret, _numInstances parameters used to generate the instance, password from the user and number of instances
     function createAInstance(uint256 _p, uint256 _q, uint256 _secret, uint256 _numInstances) public {
+        if(_p == 0)
+            _p = 1;
+        if(_q == 0)
+            _q = 1;
         uint256[] memory randoms = expand();
         uint256 cont = 0;
         uint256 maxClauses = 100;
@@ -186,6 +190,10 @@ contract Generator is VRFConsumerBase {
     /// @notice Generates a new Instance from B generator
     /// @param _p, _q, _secret, _numInstances parameters used to generate the instance, password from the user and number of instances
     function createBInstance(uint256 _p, uint256 _q, uint256 _secret, uint256 _numInstances) public {
+        if(_p == 0)
+            _p = 1;
+        if(_q == 0)
+            _q = 1;
         uint256[] memory randoms = expand();
         uint256 cont = 0;
         uint256 maxClauses = 100;
