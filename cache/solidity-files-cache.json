@@ -147,8 +147,8 @@
       ]
     },
     "C:\\Users\\Jonathan\\Documents\\GitHub\\3SAT_Instance_Generator\\contracts\\Generator.sol": {
-      "lastModificationDate": 1663525195653,
-      "contentHash": "08683571e2332bdefa28c9b9989e2ca2",
+      "lastModificationDate": 1664667843661,
+      "contentHash": "402047c4abe07b46829f1373b77ec5f2",
       "sourceName": "contracts/Generator.sol",
       "solcConfig": {
         "version": "0.8.0",
