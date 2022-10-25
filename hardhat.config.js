@@ -1,5 +1,5 @@
 const { projectId, account_key } = require('./secrets.json'); 
-require("@nomiclabs/hardhat-waffle");
+require("@nomiclabs/hardhat-ethers");
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
@@ -9,25 +9,20 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
+
+// Go to https://www.alchemyapi.io, sign up, create
+// a new App in its dashboard, and replace "KEY" with its key
+
+// Replace this private key with your Goerli account private key
+// To export your private key from Metamask, open Metamask and
+// go to Account Details > Export Private Key
+// Beware: NEVER put real Ether into testing accounts
+
 module.exports = {
-  solidity: "0.8.0",
-  paths: {
-    artifacts: './src/artifacts',
-  },
+  solidity: "0.8.9",
   networks: {
-    hardhat: {
-      chainId: 1337,
-      gas: 12000000,
-      gasPrice: 99000000000,
-      allowUnlimitedContractSize: true,
-      blockGasLimit: 50000000,
-      timeout: 1500000
-    },
-    kovan: {
-      url: `https://kovan.infura.io/v3/${projectId}`,
+    goerli: {
+      url: `https://eth-goerli.alchemyapi.io/v2/${projectId}`,
       accounts: [`0x${account_key}`]
     }
   }

@@ -150,7 +150,7 @@ contract Generator is VRFConsumerBase {
     function createAInstance(uint256 _p, uint256 _q, uint256 _secret, uint256 _numInstances) public {
         uint256[] memory randoms = expand();
         uint256 cont = 0;
-        uint256 maxClauses = 99;
+        uint256 maxClauses = 150;
         for(uint k = 0; k < _numInstances; k++){
             string memory prepositions = "";
             uint256 symbols = 1;
@@ -188,7 +188,7 @@ contract Generator is VRFConsumerBase {
     function createBInstance(uint256 _p, uint256 _q, uint256 _secret, uint256 _numInstances) public {
         uint256[] memory randoms = expand();
         uint256 cont = 0;
-        uint256 maxClauses = 99;
+        uint256 maxClauses = 150;
         for(uint k = 0; k < _numInstances; k++){
             string memory prepositions = "";
             uint256 symbols = 1;

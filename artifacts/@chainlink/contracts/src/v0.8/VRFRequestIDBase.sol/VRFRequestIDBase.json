@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "VRFRequestIDBase",
+  "sourceName": "@chainlink/contracts/src/v0.8/VRFRequestIDBase.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207322671a6bbec7f3e17f57fcc1a96160f47fa16855858666f94968bca8b7f72c64736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207322671a6bbec7f3e17f57fcc1a96160f47fa16855858666f94968bca8b7f72c64736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
