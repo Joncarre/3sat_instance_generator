@@ -32,6 +32,8 @@ contract Generator is VRFConsumerBase {
         bool solved;
         uint256 dateSolution;
     }
+
+    
     mapping(uint256 => Instance) instances; // id => instance
 
     struct Hash {
