@@ -2,9 +2,17 @@
 
 A blockchain-based decentralized application (DApp) for generating verifiable random instances of the 3-SAT problem, built on Ethereum using Chainlink VRF for provably random number generation.
 
+<div align="center">
+    <img src="src/images/image(27).png" alt="3SAT Instance Generator Interface" width="55%">
+</div>
+
 ##  Overview
 
 The 3SAT Instance Generator is a revolutionary DApp that eliminates the need to trust third parties when generating random test instances for the 3-SAT problem. By leveraging blockchain technology and Chainlink oracles, researchers can generate truly random, verifiable instances for algorithm testing.
+
+<div align="center">
+    <img src="src/images/image(28).png" alt="Blockchain Technology Overview" width="55%">
+</div>
 
 ### Key Features
 - ✅ **Verifiable Random Generation**: Using Chainlink VRF for provably random numbers
