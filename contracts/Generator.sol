@@ -59,11 +59,11 @@ contract Generator is VRFConsumerBase {
     /// @notice Main constructor
     constructor() 
       VRFConsumerBase(
-            0xdD3782915140c8f3b190B5D67eAc6dc5760C46E9, // VRF Coordinator
-            0xa36085F69e2889c224210F603D836748e7dC0088  // LINK Token
+            0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625, // VRF Coordinator Sepolia
+            0x779877A7B0D9E8603169DdbD7836e478b4624789  // LINK Token Sepolia
         )
     {
-        keyHash = 0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4;
+        keyHash = 0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c;
         fee = 0.1 * 10 ** 18; // 0.1 LINK (it varies by network)
         nonce = 0;
         idInstance = 0;
