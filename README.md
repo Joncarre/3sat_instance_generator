@@ -1,8 +1,8 @@
-# 3SAT Instance Generator - Decentralized Application
+# 3SAT Instance Generator
 
 A blockchain-based decentralized application (DApp) for generating verifiable random instances of the 3-SAT problem, built on Ethereum using Chainlink VRF for provably random number generation.
 
-## 🎯 Overview
+##  Overview
 
 The 3SAT Instance Generator is a revolutionary DApp that eliminates the need to trust third parties when generating random test instances for the 3-SAT problem. By leveraging blockchain technology and Chainlink oracles, researchers can generate truly random, verifiable instances for algorithm testing.
 
@@ -20,25 +20,6 @@ The DApp is deployed on **Sepolia Testnet**:
 - **Smart Contract**: `0x8E913f81FeD26A6E3Ba13488E763d199CFC939e6F`
 - **Network**: Ethereum Sepolia Testnet
 - **Access**: Connect with MetaMask to interact
-
-## 🔧 Technology Stack
-
-### Blockchain & Smart Contracts
-- **Solidity** - Smart contract development
-- **Hardhat** - Ethereum development framework
-- **Ethers.js** - Ethereum interaction library
-- **Chainlink VRF** - Verifiable random number generation
-
-### Frontend
-- **React** - Frontend framework
-- **Styled Components** - CSS-in-JS styling
-- **Material-UI** - UI component library
-- **React Router** - Navigation
-
-### Backend & Services
-- **Node.js** - Runtime environment
-- **EmailJS** - Email service integration
-- **Alchemy** - Ethereum node provider
 
 ## 📋 Prerequisites
 
@@ -75,8 +56,6 @@ Create a `secrets.json` file in the root directory:
   "account_key": "your_private_key_without_0x"
 }
 ```
-
-**⚠️ Security Warning**: Never commit `secrets.json` to version control or share your private keys.
 
 ### Step 4: MetaMask Setup
 
@@ -146,38 +125,7 @@ Open your browser and navigate to:
 http://localhost:3000
 ```
 
-## 📖 How to Use the DApp
-
-### 1. Registration
-1. Click "Register" in the navigation
-2. Enter your ORCID ID, name, and email
-3. Receive your password via email (SHA256 hash)
-
-### 2. Authentication
-1. Click "Sign In"
-2. Enter your ORCID and received password
-
-### 3. Generate Random Numbers
-1. Navigate to "User Section"
-2. Click "Get Random Number"
-3. Wait for Chainlink VRF response (requires LINK tokens)
-
-### 4. Create Instances
-1. Choose Algorithm A or B
-2. Set parameters (p, q, number of instances)
-3. Submit transaction (requires ETH for gas)
-
-### 5. View Instances
-1. Click "Get All Instances"
-2. Browse generated instances
-3. View details and solutions
-
-### 6. Solve Instances
-1. Select an instance
-2. Submit your solution with algorithm hash
-3. Verify solution on blockchain
-
-## 🧮 Understanding 3-SAT
+## Understanding 3-SAT
 
 The Boolean satisfiability problem (3-SAT) is a fundamental NP-complete problem in computer science. It asks whether there exists an assignment of boolean values to variables that makes a given boolean formula true.
 
@@ -188,7 +136,7 @@ The Boolean satisfiability problem (3-SAT) is a fundamental NP-complete problem 
 
 This DApp generates random instances of such formulas for algorithm testing.
 
-## 🔗 Smart Contract Details
+## Smart Contract Details
 
 ### Key Functions
 - `setResearcher()` - Register new researcher
@@ -211,44 +159,6 @@ This DApp generates random instances of such formulas for algorithm testing.
 - **ORCID Authentication**: SHA256-based secure authentication
 - **Smart Contract Verification**: Contract is verified on Etherscan
 
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Node.js Compatibility Error**
-   ```bash
-   # Solution: Use legacy OpenSSL provider
-   $env:NODE_OPTIONS="--openssl-legacy-provider"; npm start
-   ```
-
-2. **MetaMask Connection Issues**
-   - Ensure MetaMask is unlocked
-   - Check network is set to Sepolia
-   - Refresh the page
-
-3. **Transaction Failures**
-   - Check sufficient ETH balance
-   - Verify gas limits
-   - Ensure contract address is correct
-
-4. **LINK Token Issues**
-   - Verify LINK balance in contract
-   - Use Chainlink faucet for test tokens
-
-## 🧪 Testing
-
-Run the test suite:
-
-```bash
-npm test
-```
-
-Run smart contract tests:
-
-```bash
-npx hardhat test
-```
-
 ## 📝 Project Structure
 
 ```
@@ -267,25 +177,6 @@ npx hardhat test
 └── secrets.json           # Environment variables (not in repo)
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is open source. Please check the license file for details.
-
-## 📞 Support
-
-For issues and questions:
-- Open an issue on GitHub
-- Check the FAQ section in the DApp
-- Review the troubleshooting guide above
-
 ## 🔗 Useful Links
 
 - [Chainlink Documentation](https://docs.chain.link/)
@@ -294,8 +185,6 @@ For issues and questions:
 - [MetaMask Setup Guide](https://metamask.io/download.html)
 - [Sepolia Faucet](https://sepoliafaucet.com/)
 - [Chainlink Faucet](https://faucets.chain.link/)
-
----
 
 **⚠️ Disclaimer**: This is a testnet application for educational and research purposes. Do not use real funds on mainnet without proper security audits.
 
